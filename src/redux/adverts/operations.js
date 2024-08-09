@@ -19,3 +19,18 @@ export const fetchAdverts = createAsyncThunk(
     }
   }
 );
+
+export const loadMoreAdverts = createAsyncThunk(
+  "adverts/loadMore",
+  async ({ page = 2, limit = 4 }, thunkAPI) => {
+    try {
+      const { data } = await instance.get("/advert", {
+        params: { page, limit },
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,9 +1,13 @@
-
+import Location from "../Location/Location";
+import Filters from "../Filters/Filters";
 
 const Sidebar = () => {
   return (
-    <div>Sidebar</div>
-  )
-}
+    <div>
+      <Location />
+      <Filters />
+    </div>
+  );
+};
 
-export default Sidebar
+export default Sidebar;

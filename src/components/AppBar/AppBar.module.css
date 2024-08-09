@@ -6,10 +6,12 @@
 
 .navLink {
   border: 1px solid rgba(71, 84, 103, 0.2);
+  background-color: #ffffff;
   border-radius: 200px;
-  padding: 10px 50px;
-  
-  
+  padding: 16px 40px;
+  width: 166px;
+  height: 56px;
+  text-align: center;
 
   font-weight: 500;
   font-size: 16px;
@@ -17,7 +19,23 @@
   letter-spacing: -0.01em;
 }
 
+.navLink:hover,
+.navLink:focus {
+  border: 1px solid #e44848;
+}
+
 .active {
-    background-color: #FFC531;
-    border: none;
+  background-color: #e44848;
+  border-radius: 200px;
+  padding: 16px 40px;
+  width: 166px;
+  height: 56px;
+
+  text-align: center;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #ffffff;
 }

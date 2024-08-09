@@ -92,7 +92,9 @@ const VehicleItem = ({ item }) => {
             </li>
           )}
         </ul>
-        <button className={css.btnShowMore} type="button">Show more</button>
+        <button className={css.btnShowMore} type="button">
+          Show more
+        </button>
       </div>
     </li>
   );
