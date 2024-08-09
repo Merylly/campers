@@ -1,5 +1,66 @@
-:root {
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  crossorigin: anonymous;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  crossorigin: anonymous;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../src/assets/fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  crossorigin: anonymous;
 }
 
 body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }

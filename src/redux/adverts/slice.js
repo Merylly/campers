@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 const advertSlice = createSlice({
   name: "advertsSlice",
   initialState: INITIAL_STATE,
-  redusers: {
+  reducers: {
     incrementPage(state) {
       state.currentPage += 1;
     },
@@ -25,17 +25,21 @@ const advertSlice = createSlice({
     },
   },
   extraReducers: (builder) =>
-    builder.addCase(fetchAdverts.fulfilled, (state, action) => {
-      if (action.payload.length === 0) {
-        state.hasMore = false;
-      } else {
-        state.items = [...state.items, ...action.payload];
-      }
-      state.isLoading = false;
-      state.isError = null;
-    }),
+    builder
+      .addCase(fetchAdverts.pending, (state) => {
+        state.isLoading = true;
+        state.isError = null;
+      })
+      .addCase(fetchAdverts.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoading = false;
+        state.isError = null;
+      })
+      .addCase(fetchAdverts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = action.error.message;
+      }),
 });
-
 
 export const { incrementPage, resetState } = advertSlice.actions;
 export const advertReducer = advertSlice.reducer;
