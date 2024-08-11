@@ -20,10 +20,8 @@ const useAdvertSearch = () => {
   const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    if (hasMore) {
-      dispatch(fetchAdverts({ page: currentPage, limit: 4, }));
-    }
-  }, [dispatch, currentPage, hasMore]);
+    dispatch(fetchAdverts());
+  }, [dispatch]);
 
   const loadMore = () => {
     if (hasMore) {
@@ -31,8 +29,6 @@ const useAdvertSearch = () => {
     }
   };
 
-    
-    
   return { hasMore, isLoading, currentPage, loadMore, items };
 };
 

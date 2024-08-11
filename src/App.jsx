@@ -3,7 +3,7 @@ import Layout from "./components/Layout/Layout";
 import Loader from "./components/Loader/Loader";
 import HomePage from "./pages/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
-import FavoritesPage from "./pages/FavoritesPage";
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import { Route, Routes } from "react-router-dom";
 
 function App() {

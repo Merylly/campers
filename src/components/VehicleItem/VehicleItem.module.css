@@ -45,6 +45,11 @@
   stroke: black;
 }
 
+.iconFavoriteAdd {
+  fill: #d84343;
+  stroke: #d84343;
+}
+
 .itemPrice {
   font-weight: 600;
   font-size: 24px;

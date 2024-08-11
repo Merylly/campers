@@ -7,11 +7,9 @@ export const instance = axios.create({
 
 export const fetchAdverts = createAsyncThunk(
   "adverts/fetchAll",
-  async ({ page = 1, limit = 4 }, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await instance.get("/advert", {
-        params: { page, limit },
-      });
+      const { data } = await instance.get("/advert");
       console.log(data);
       return data;
     } catch (error) {
@@ -20,17 +18,17 @@ export const fetchAdverts = createAsyncThunk(
   }
 );
 
-export const loadMoreAdverts = createAsyncThunk(
-  "adverts/loadMore",
-  async ({ page = 2, limit = 4 }, thunkAPI) => {
-    try {
-      const { data } = await instance.get("/advert", {
-        params: { page, limit },
-      });
-      console.log(data);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const loadMoreAdverts = createAsyncThunk(
+//   "adverts/loadMore",
+//   async ({ page = 2, limit = 4 }, thunkAPI) => {
+//     try {
+//       const { data } = await instance.get("/advert", {
+//         params: { page, limit },
+//       });
+//       console.log(data);
+//       return data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

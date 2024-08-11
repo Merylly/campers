@@ -1,7 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
 import Icon from "../Icon/Icon";
 import css from "./VehicleItem.module.css";
+import { selectFavorites } from "../../redux/adverts/selectors";
+import { toggleFavorite } from "../../redux/adverts/slice";
 
 const VehicleItem = ({ item }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+
+  const isFavorite = favorites.some((favorite) => favorite._id === item._id);
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite(item));
+  };
+
   return (
     <li className={css.vehicleItem}>
       <div className={css.imageWrapper}>
@@ -13,12 +25,23 @@ const VehicleItem = ({ item }) => {
           <h2 className={css.itemTitle}>{item.name}</h2>
           <div className={css.priceWrapper}>
             <p className={css.itemPrice}>€{item.price},00</p>
-            <Icon
-              className={css.iconFavorite}
-              id="heart"
-              width="24"
-              height="24"
-            />
+            {isFavorite ? (
+              <Icon
+                onClick={handleToggleFavorite}
+                className={css.iconFavoriteAdd}
+                id="filled-heart"
+                width="24"
+                height="24"
+              />
+            ) : (
+              <Icon
+                onClick={handleToggleFavorite}
+                className={css.iconFavorite}
+                id="heart"
+                width="24"
+                height="24"
+              />
+            )}
           </div>
         </div>
 
